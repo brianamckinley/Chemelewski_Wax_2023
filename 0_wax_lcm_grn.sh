@@ -142,8 +142,8 @@ LEFT JOIN SYM
 ON SYM.TranscriptIDV3 = annotation.TranscriptIDV3
 LEFT JOIN dym
 ON dym.TranscriptIDV3 = annotation.TranscriptIDV3
-LEFT JOIN ddym2
-ON ddym2.TranscriptIDV3 = annotation.TranscriptIDV3
+LEFT JOIN ddym
+ON ddym.TranscriptIDV3 = annotation.TranscriptIDV3
 LEFT JOIN pnnl
 ON pnnl.TranscriptIDV3 = annotation.TranscriptIDV3
 LEFT JOIN dleaves
@@ -410,8 +410,9 @@ Gene_ID <- gene_tpm5up[,'Gene_ID']
 
 ############# Create TPM and counts datasets
 ${Description}_TPM_tpm5up <- cbind(Gene_ID,gene_tpm5up[,${RmaxStartTPMdata}:${RmaxEndTPMdata}])
+head(${Description}_TPM_tpm5up,1)
 ${Description}_counts_tpm5up <- cbind(Gene_ID,gene_tpm5up[,${RmaxStartCountData}:${RmaxEndCountdata}])
-
+head(${Description}_counts_tpm5up,1)
 ############# Calculate differential expression
 library("edgeR")
 library("gtools")
